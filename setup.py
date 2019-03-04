@@ -7,6 +7,7 @@ import sys
 
 from setuptools import find_packages, setup
 from setuptools.command.test import test as TestCommand
+from time import time
 
 __location__ = os.path.join(os.getcwd(), os.path.dirname(inspect.getfile(inspect.currentframe())))
 
@@ -15,7 +16,7 @@ def read_version(package):
     with open(os.path.join(package, '__init__.py'), 'r') as fd:
         for line in fd:
             if line.startswith('__version__ = '):
-                return line.split()[-1].strip().strip("'")
+                return line.split()[-1].strip().strip("'") + "." + str(int(time()))
 
 
 version = read_version('connexion')
@@ -94,7 +95,7 @@ def readme():
 
 
 setup(
-    name='connexion',
+    name='custom_connexion',
     packages=find_packages(),
     version=version,
     description='Connexion - API first applications with OpenAPI/Swagger and Flask',

@@ -204,7 +204,8 @@ class Swagger2Specification(Specification):
         try:
             validate_spec(spec)
         except OpenAPIValidationError as e:
-            raise InvalidSpecification.create_from(e)
+            print("---NOT THROWING EXCEPTION FOR OPENAPI VALIDATION ERRORS---")
+            # raise InvalidSpecification.create_from(e)
 
 
 class OpenAPISpecification(Specification):
@@ -229,7 +230,8 @@ class OpenAPISpecification(Specification):
         try:
             validate_spec(spec)
         except OpenAPIValidationError as e:
-            raise InvalidSpecification.create_from(e)
+            print("---NOT THROWING EXCEPTION FOR OPENAPI VALIDATION ERRORS---")
+            # raise InvalidSpecification.create_from(e)
 
     @property
     def base_path(self):
